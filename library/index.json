@@ -1,0 +1,76 @@
+{
+ "songs": [
+  {
+   "id": "campanella",
+   "title": "Liszt \u2014 La Campanella",
+   "file": "campanella.json",
+   "duration": 273.2,
+   "notes": 4249,
+   "source": "MAESTRO v3, 2008 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "nocturne-9-2",
+   "title": "Chopin \u2014 Nocturne Op. 9 No. 2",
+   "file": "nocturne-9-2.json",
+   "duration": 220.7,
+   "notes": 1498,
+   "source": "MAESTRO v3, 2011 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "rach-prelude-c-sharp",
+   "title": "Rachmaninoff \u2014 Prelude in C\u266f minor, Op. 3 No. 2",
+   "file": "rach-prelude-c-sharp.json",
+   "duration": 231.9,
+   "notes": 1764,
+   "source": "MAESTRO v3, 2004 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "etude-10-4",
+   "title": "Chopin \u2014 \u00c9tude Op. 10 No. 4",
+   "file": "etude-10-4.json",
+   "duration": 119.1,
+   "notes": 2306,
+   "source": "MAESTRO v3, 2013 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "polonaise-53",
+   "title": "Chopin \u2014 Polonaise Op. 53 \u201cHeroic\u201d",
+   "file": "polonaise-53.json",
+   "duration": 456.1,
+   "notes": 6146,
+   "source": "MAESTRO v3, 2013 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "ballade-1",
+   "title": "Chopin \u2014 Ballade No. 1",
+   "file": "ballade-1.json",
+   "duration": 551.6,
+   "notes": 5156,
+   "source": "MAESTRO v3, 2004 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "hungarian-2",
+   "title": "Liszt \u2014 Hungarian Rhapsody No. 2",
+   "file": "hungarian-2.json",
+   "duration": 539.1,
+   "notes": 6830,
+   "source": "MAESTRO v3, 2015 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  },
+  {
+   "id": "wtc-846",
+   "title": "Bach \u2014 Prelude and Fugue in C, BWV 846",
+   "file": "wtc-846.json",
+   "duration": 239.8,
+   "notes": 1925,
+   "source": "MAESTRO v3, 2014 Piano-e-Competition performance",
+   "license": "CC BY-NC-SA 4.0 (local use)"
+  }
+ ]
+}

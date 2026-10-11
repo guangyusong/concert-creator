@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Concert Creator</title>
+    <meta name="description" content="Open-source virtual piano concerts: drop in a MIDI file and watch 3D hands perform it." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Cg fill='%23f3efe6'%3E%3Crect x='5' y='8' width='5' height='17' rx='1'/%3E%3Crect x='11' y='8' width='5' height='17' rx='1'/%3E%3Crect x='17' y='8' width='5' height='17' rx='1'/%3E%3Crect x='23' y='8' width='4' height='17' rx='1'/%3E%3C/g%3E%3Cg fill='%23ffb84f'%3E%3Crect x='8.5' y='8' width='3.4' height='10' rx='.8'/%3E%3Crect x='14.5' y='8' width='3.4' height='10' rx='.8'/%3E%3Crect x='21' y='8' width='3.4' height='10' rx='.8'/%3E%3C/g%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BWwmnrb2.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CbRe9dRU.css">
+  </head>
+  <body>
+    <canvas id="view" aria-label="3D piano performance"></canvas>
+
+    <header class="brand">
+      <h1>Concert <em>Creator</em></h1>
+      <p id="song-title" class="song">Loading…</p>
+    </header>
+
+    <button id="panel-toggle" class="chip panel-toggle" aria-expanded="true" aria-controls="panel">Studio</button>
+
+    <aside id="panel" class="panel" aria-label="Studio controls">
+      <section>
+        <h2>Program</h2>
+        <label class="field">
+          <span>Song</span>
+          <select id="library" aria-label="Song library"><option value="demo">Bach — Prelude in C (built-in)</option></select>
+        </label>
+        <div class="row">
+          <button id="open-midi" class="btn primary">Open MIDI…</button>
+          <button id="demo" class="btn">Bach prelude</button>
+        </div>
+        <input id="file" type="file" accept=".mid,.midi,audio/midi,audio/x-midi" hidden />
+        <p class="hint">Or drop a <code>.mid</code> file anywhere on the stage.</p>
+      </section>
+      <section>
+        <h2>Camera</h2>
+        <div id="cameras" class="grid"></div>
+      </section>
+      <section>
+        <h2>Lighting</h2>
+        <div id="lights" class="grid"></div>
+      </section>
+      <section>
+        <h2>Performer</h2>
+        <label class="toggle"><input id="show-hands" type="checkbox" checked /> <span>Show hands</span></label>
+        <div id="hand-styles" class="grid three"></div>
+        <div class="colors">
+          <label><input id="color-L" type="color" value="#4fb3ff" /> Left hand</label>
+          <label><input id="color-R" type="color" value="#ffb84f" /> Right hand</label>
+        </div>
+      </section>
+      <section>
+        <h2>Stage</h2>
+        <label class="toggle"><input id="show-notes" type="checkbox" /> <span>Falling notes</span></label>
+        <label class="toggle"><input id="lid" type="checkbox" checked /> <span>Lid open</span></label>
+      </section>
+      <section>
+        <h2>Export</h2>
+        <label class="field">
+          <span>Quality</span>
+          <select id="export-quality" aria-label="Export quality">
+            <option value="720p">720p · fastest</option>
+            <option value="1080p" selected>1080p · YouTube</option>
+            <option value="4k">4K · slow</option>
+          </select>
+        </label>
+        <button id="record" class="btn wide">● Export video</button>
+        <p id="record-status" class="hint" aria-live="polite">Renders the whole piece in studio quality on this computer and saves an MP4 with sound.</p>
+      </section>
+      <p class="foot"><span id="audio-status">loading piano…</span> · <span id="motion-status">hands: procedural</span><br />Free and non-commercial · <a href="credits.html" target="_blank" rel="noopener">Credits &amp; licenses</a><span id="model-credit"></span></p>
+    </aside>
+
+    <footer class="transport" aria-label="Playback">
+      <button id="play" class="play" aria-label="Play">
+        <svg viewBox="0 0 24 24" class="i-play"><path d="M7 4.5v15l13-7.5z" /></svg>
+        <svg viewBox="0 0 24 24" class="i-pause"><path d="M6 4.5h4.5v15H6zM13.5 4.5H18v15h-4.5z" /></svg>
+      </button>
+      <span id="time" class="time">0:00</span>
+      <input id="scrub" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek" />
+      <span id="duration" class="time">0:00</span>
+      <select id="speed" aria-label="Speed">
+        <option value="0.25">0.25×</option>
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2×</option>
+      </select>
+    </footer>
+
+    <div id="splash" class="splash">
+      <div class="card">
+        <p class="kicker">Tonight's program</p>
+        <h2 id="splash-title">Bach: Prelude in C, BWV 846</h2>
+        <div class="row">
+          <button id="begin" class="btn primary big">Begin the concert</button>
+          <button id="splash-open" class="btn big">Open MIDI…</button>
+        </div>
+        <p class="hint"> Press <kbd>Space</kbd> to play or pause, <kbd>C</kbd> to change camera. Pick a piece or open your own MIDI file in <b>Studio</b>, then <b>Export video</b> to save it as an MP4.</p>
+      </div>
+    </div>
+
+    <div id="drop" class="drop" hidden><p>Drop a MIDI file to perform it</p></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  </body>
+</html>

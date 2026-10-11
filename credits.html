@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Credits · Concert Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0a0a;
+        --ink: #ece6dc;
+        --muted: #a39b8f;
+        --accent: #ffb84f;
+        --rule: #2a2622;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 15px/1.6 Inter, system-ui, sans-serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 16px 80px;
+      }
+      h1 {
+        font: 500 40px/1.1 'Cormorant Garamond', Georgia, serif;
+        margin: 0 0 8px;
+      }
+      h1 em {
+        color: var(--accent);
+      }
+      h2 {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 36px 0 8px;
+        padding-top: 20px;
+        border-top: 1px solid var(--rule);
+      }
+      p,
+      li {
+        color: var(--ink);
+      }
+      .lede {
+        color: var(--muted);
+        font-size: 16px;
+      }
+      ul {
+        padding-left: 18px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      a {
+        color: var(--accent);
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="./">← Back to the concert</a>
+      <h1>Concert <em>Creator</em></h1>
+      <p class="lede">A free, open-source remake of the virtual piano concerts concertcreator.ai used to make. Everything runs in your browser: the pianist, the piano, the sound and the video export happen on your own computer, and nothing you open is uploaded.</p>
+
+      <h2>Free and non-commercial</h2>
+      <p>The program's own code is MIT-licensed. The song library and the learned hand-motion model are built from datasets licensed for non-commercial use only, so this site is free and not for commercial use. Videos you export of your own MIDI files are yours. If you share videos of the library pieces, please credit the performances as below.</p>
+
+      <h2>Performances and fingering</h2>
+      <ul>
+        <li>Library performances: <a href="https://magenta.tensorflow.org/datasets/maestro">MAESTRO v3</a> (Google Magenta), CC BY-NC-SA 4.0.</li>
+        <li>Learned fingering and hand motion: models trained on the FürElise dataset of recorded pianist hand motion, CC BY-NC 4.0.</li>
+        <li>Automatic fingering for your own files after R. Parncutt, J. A. Sloboda, E. F. Clarke, M. Raekallio and P. Desain, “An ergonomic model of keyboard fingering for melodic fragments”, <i>Music Perception</i> 14(4), 1997.</li>
+      </ul>
+
+      <h2>Sound</h2>
+      <ul>
+        <li><a href="https://archive.org/details/SalamanderGrandPianoV3">Salamander Grand Piano</a> by Alexander Holm, CC BY 3.0, served by the Tone.js project.</li>
+      </ul>
+
+      <h2>3D</h2>
+      <ul>
+        <li>Grand piano: <a href="https://sketchfab.com/3d-models/grand-piano-911d564fa49947c78d9944575b2e1cd4">“grand piano”</a> by <a href="https://sketchfab.com/local.yany">local.yany</a>, CC BY 4.0, reposed, rebranded and re-materialled.</li>
+        <li>Pianist: built with <a href="https://static.makehumancommunity.org/">MakeHuman</a> / MPFB system assets (CC0) in Blender.</li>
+        <li>Hall lighting: <a href="https://polyhaven.com/a/music_hall_01">Music Hall 01</a> HDRI from Poly Haven, CC0.</li>
+      </ul>
+
+      <h2>Software</h2>
+      <ul>
+        <li><a href="https://threejs.org">three.js</a>, <a href="https://tonejs.github.io">Tone.js</a>, <a href="https://github.com/Tonejs/Midi">@tonejs/midi</a>, <a href="https://github.com/microsoft/onnxruntime">onnxruntime-web</a>, <a href="https://github.com/Vanilagy/mp4-muxer">mp4-muxer</a>, all MIT. <a href="https://www.blender.org">Blender</a> for the models and materials.</li>
+        <li>Fonts: Cormorant Garamond and Inter, SIL Open Font License.</li>
+      </ul>
+    </main>
+  </body>
+</html>
